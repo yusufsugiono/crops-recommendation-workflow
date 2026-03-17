@@ -44,7 +44,8 @@ jobs:
           git push origin main
 
       # Build docker image
-      - name: Find model path
+      - name: Build docker image
         run: |
           MODEL_PATH=$(find mlruns -name MLmodel | head -n 1 | xargs dirname)
-          echo "Model path: $MODEL_PATH"
+          mlflow models generate-dockerfile -m $MODEL_PATH -o crops_recommendation_docker
+          echo "Successfully build docker image"
