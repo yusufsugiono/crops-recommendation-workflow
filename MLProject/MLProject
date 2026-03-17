@@ -1,0 +1,13 @@
+name: submission-mlflow
+ 
+conda_env: conda.yaml
+ 
+entry_points:
+  main:
+    parameters:
+      n_estimators: {type: int, default: 50}
+      max_depth: {type: string, default: "None"}
+      min_samples_leaf: {type: int, default: 1}
+      dataset_train : {type: string, default: "CropRecommendation_preprocessing/train_preprocessed.csv"}
+      dataset_test : {type: string, default: "CropRecommendation_preprocessing/test_preprocessed.csv"}
+    command: "python modelling.py --n_estimators={n_estimators} --max-depth={max_depth} --min_samples_leaf={min_samples_leaf} --train={dataset_train} --test={dataset_test}"
