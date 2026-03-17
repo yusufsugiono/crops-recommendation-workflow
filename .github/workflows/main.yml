@@ -42,3 +42,9 @@ jobs:
           git add mlruns/
           git commit -m "Save mlruns from CI run"
           git push origin main
+
+      # Build docker image
+      - name: Find model path
+        run: |
+          MODEL_PATH=$(find mlruns -name MLmodel | head -n 1 | xargs dirname)
+          echo "Model path: $MODEL_PATH"
