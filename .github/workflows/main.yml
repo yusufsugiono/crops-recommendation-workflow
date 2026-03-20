@@ -58,6 +58,11 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      # Extract Commit SHA
+      - name: Extract commit SHA
+        id: meta
+        run: echo "SHORT_SHA=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
       # Build and push image to DockerHub
       - name: Build and push image to DockerHub
         uses: docker/build-push-action@v7
