@@ -47,7 +47,7 @@ jobs:
       - name: Build docker image
         run: |
           MODEL_PATH=$(find mlruns -name MLmodel | head -n 1 | xargs dirname)
-          mlflow models generate-dockerfile \
+          mlflow models build-docker \
             -m $MODEL_PATH \
-            --output-directory crops_recommendation_docker
+            -name "crops-recommendation"
           echo "Successfully build docker image"
