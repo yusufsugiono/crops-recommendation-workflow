@@ -43,11 +43,10 @@ jobs:
           git commit -m "Save mlruns from CI run"
           git push origin main
 
-      # Build docker image
-      - name: Build docker image
+      # Generate Dockerfile with MLFlow
+      - name: Generate Dockerfile with MLFlow
         run: |
           MODEL_PATH=$(find mlruns -name MLmodel | head -n 1 | xargs dirname)
-          mlflow models build-docker \
+          mlflow models generate-dockerfile \
             -m $MODEL_PATH \
-            --name "crops-recommendation"
-          echo "Successfully build docker image"
+            --output-directory crops_recommendation_docker
