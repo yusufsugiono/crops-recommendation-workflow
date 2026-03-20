@@ -81,7 +81,7 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           context: ./crops_recommendation_docker
-          file: Dockerfile
+          file: ./crops_recommendation_docker/Dockerfile
           push: true
           platforms: linux/amd64,linux/arm64
           tags: |
