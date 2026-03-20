@@ -49,5 +49,5 @@ jobs:
           MODEL_PATH=$(find mlruns -name MLmodel | head -n 1 | xargs dirname)
           mlflow models build-docker \
             -m $MODEL_PATH \
-            -name "crops-recommendation"
+            --name "crops-recommendation"
           echo "Successfully build docker image"
