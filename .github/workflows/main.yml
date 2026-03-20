@@ -47,9 +47,15 @@ jobs:
       - name: Generate Dockerfile with MLFlow
         run: |
           MODEL_PATH=$(find mlruns -name MLmodel | head -n 1 | xargs dirname)
+          echo $MODEL_PATH
           mlflow models generate-dockerfile \
             -m $MODEL_PATH \
             --output-directory crops_recommendation_docker
+
+      - name: Check generated Dockerfile
+        run: |
+          ls -R crops_recommendation_docker || echo "Folder missing"
+          cat crops_recommendation_docker/Dockerfile || echo "Dockerfile missing"
 
       # Login to Docker Hub
       - name: Log in to Docker Hub
