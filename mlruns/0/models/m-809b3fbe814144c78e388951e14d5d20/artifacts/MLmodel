@@ -1,0 +1,38 @@
+artifact_path: /home/runner/work/crops-recommendation-workflow/crops-recommendation-workflow/mlruns/0/models/m-809b3fbe814144c78e388951e14d5d20/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.7
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.8.0
+    skops_trusted_types: null
+is_signature_from_type_hint: false
+mlflow_version: 3.10.1
+model_id: m-809b3fbe814144c78e388951e14d5d20
+model_size_bytes: 1869348
+model_uuid: m-809b3fbe814144c78e388951e14d5d20
+prompts: null
+run_id: db90809435f9452eb299fa8163515958
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  serving_input_path: serving_input_example.json
+  type: dataframe
+signature:
+  inputs: '[{"type": "double", "name": "N", "required": true}, {"type": "double",
+    "name": "P", "required": true}, {"type": "double", "name": "K", "required": true},
+    {"type": "double", "name": "temperature", "required": true}, {"type": "double",
+    "name": "humidity", "required": true}, {"type": "double", "name": "ph", "required":
+    true}, {"type": "double", "name": "rainfall", "required": true}]'
+  outputs: '[{"type": "long", "required": true}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2026-03-20 02:48:32.797391'
